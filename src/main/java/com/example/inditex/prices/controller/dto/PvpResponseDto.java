@@ -8,7 +8,8 @@ import java.time.LocalDateTime;
 @Data
 public class PvpResponseDto {
     private int productId;
-    private String brand;
+    private int brandId;
+    private int priceId;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private BigDecimal price;
