@@ -29,9 +29,7 @@ public class PvpSpecification implements Specification<PriceEntity> {
         List<Predicate> predicates = new ArrayList<>();
 
         predicates.add(criteriaBuilder.equal(root.get("productId"), this.productId));
-
         predicates.add(criteriaBuilder.equal(root.get("brandId"), this.brandId));
-
         predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get("startDate"), this.date));
         predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get("endDate"), this.date));
 
