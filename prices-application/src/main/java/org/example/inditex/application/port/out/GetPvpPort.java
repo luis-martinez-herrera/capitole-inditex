@@ -5,6 +5,5 @@ import org.example.inditex.application.domain.model.PvpResolver;
 
 public interface GetPvpPort {
 
-    Pvp resolve(PvpResolver resolver);
-
+  Pvp resolve(PvpResolver resolver);
 }

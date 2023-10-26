@@ -18,21 +18,19 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class PvpPersistenceAdapter implements GetPvpPort {
 
-    private final PvpRepository pvpRepository;
+  private final PvpRepository pvpRepository;
 
-    @Override
-    public Pvp resolve(final PvpResolver resolver) {
-        final Specification<PvpEntity> specification = this.buildPvpSpecification(resolver);
+  @Override
+  public Pvp resolve(final PvpResolver resolver) {
+    final Specification<PvpEntity> specification = this.buildPvpSpecification(resolver);
 
-        return this.pvpRepository.findAll(specification)
-                .stream()
-                .max(Comparator.comparing(PvpEntity::getPriority))
-                .map(PvpMapper.INSTANCE::toPvp)
-                .orElseThrow(NoSuchElementException::new);
-    }
+    return this.pvpRepository.findAll(specification).stream()
+        .max(Comparator.comparing(PvpEntity::getPriority))
+        .map(PvpMapper.INSTANCE::toPvp)
+        .orElseThrow(NoSuchElementException::new);
+  }
 
-    private Specification<PvpEntity> buildPvpSpecification(final PvpResolver resolver){
-        return new PvpSpecification(resolver.date(), resolver.productId(), resolver.brandId());
-    }
-
+  private Specification<PvpEntity> buildPvpSpecification(final PvpResolver resolver) {
+    return new PvpSpecification(resolver.date(), resolver.productId(), resolver.brandId());
+  }
 }

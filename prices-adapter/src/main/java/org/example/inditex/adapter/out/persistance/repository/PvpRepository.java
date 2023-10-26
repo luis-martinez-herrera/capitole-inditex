@@ -6,6 +6,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PvpRepository extends JpaRepository<PvpEntity, Integer>, JpaSpecificationExecutor<PvpEntity> {
-
-}
+public interface PvpRepository
+    extends JpaRepository<PvpEntity, Integer>, JpaSpecificationExecutor<PvpEntity> {}

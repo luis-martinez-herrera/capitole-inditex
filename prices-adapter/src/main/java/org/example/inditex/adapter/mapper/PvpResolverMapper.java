@@ -15,5 +15,4 @@ public interface PvpResolverMapper {
   PvpResolver toPvpResolver(PvpResolverRequestDto requestDto);
 
   PvpResponseDto toPvpResponse(Pvp pvp);
-
 }

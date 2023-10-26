@@ -2,6 +2,10 @@ package org.example.inditex.adapter.out.persistance;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import org.example.inditex.adapter.out.persistance.entity.PvpEntity;
 import org.example.inditex.adapter.out.persistance.repository.PvpRepository;
 import org.example.inditex.application.domain.model.Pvp;
@@ -14,14 +18,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.jpa.domain.Specification;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NoSuchElementException;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class PvpPersistenceAdapterTest {

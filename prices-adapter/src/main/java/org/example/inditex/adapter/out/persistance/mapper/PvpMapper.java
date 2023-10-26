@@ -11,5 +11,4 @@ public interface PvpMapper {
   PvpMapper INSTANCE = Mappers.getMapper(PvpMapper.class);
 
   Pvp toPvp(PvpEntity priceEntity);
-
 }

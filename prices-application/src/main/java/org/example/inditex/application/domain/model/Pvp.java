@@ -12,20 +12,19 @@ import java.time.LocalDateTime;
 @Value
 public class Pvp {
 
-    int priceId;
+  int priceId;
 
-    int productId;
+  int productId;
 
-    int brandId;
+  int brandId;
 
-    LocalDateTime startDate;
+  LocalDateTime startDate;
 
-    LocalDateTime endDate;
+  LocalDateTime endDate;
 
-    BigDecimal price;
+  BigDecimal price;
 
-    String currency;
+  String currency;
 
-    int priority;
-
+  int priority;
 }

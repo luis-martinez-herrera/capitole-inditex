@@ -11,11 +11,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class GetPvpService implements GetPvpUseCase {
 
-    private final GetPvpPort getPvpPort;
+  private final GetPvpPort getPvpPort;
 
-    @Override
-    public Pvp resolve(final PvpResolver resolver) {
-        return getPvpPort.resolve(resolver);
-    }
-
+  @Override
+  public Pvp resolve(final PvpResolver resolver) {
+    return getPvpPort.resolve(resolver);
+  }
 }

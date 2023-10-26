@@ -14,21 +14,19 @@ import lombok.Setter;
 @Table(name = "PRICES")
 public class PvpEntity {
 
-    @Id
-    private int priceId;
+  @Id private int priceId;
 
-    private int productId;
+  private int productId;
 
-    private int brandId;
+  private int brandId;
 
-    private LocalDateTime startDate;
+  private LocalDateTime startDate;
 
-    private LocalDateTime endDate;
+  private LocalDateTime endDate;
 
-    private BigDecimal price;
+  private BigDecimal price;
 
-    private String currency;
+  private String currency;
 
-    private int priority;
-
+  private int priority;
 }

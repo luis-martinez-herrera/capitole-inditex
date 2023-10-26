@@ -10,7 +10,7 @@ import lombok.Setter;
 public class PvpResponseDto {
 
   private int productId;
-  
+
   private int brandId;
 
   private int priceId;
@@ -22,5 +22,4 @@ public class PvpResponseDto {
   private BigDecimal price;
 
   private String currency;
-
 }

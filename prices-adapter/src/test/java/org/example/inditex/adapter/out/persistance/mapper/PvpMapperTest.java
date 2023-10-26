@@ -1,10 +1,10 @@
 package org.example.inditex.adapter.out.persistance.mapper;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.example.inditex.adapter.out.persistance.entity.PvpEntity;
 import org.example.inditex.application.domain.model.Pvp;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class PvpMapperTest {
 
