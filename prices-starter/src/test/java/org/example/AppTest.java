@@ -1,7 +1,5 @@
 package org.example;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import io.restassured.RestAssured;
 import java.time.LocalDateTime;
 import lombok.extern.slf4j.Slf4j;
