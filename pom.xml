@@ -11,9 +11,15 @@
     <groupId>com.example.inditex</groupId>
     <artifactId>prices</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>inditex</name>
     <description>inditex</description>
+    <modules>
+        <module>prices-adapter</module>
+    </modules>
     <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <java.version>17</java.version>
         <org.mapstruct.version>1.5.2.Final</org.mapstruct.version>
     </properties>
