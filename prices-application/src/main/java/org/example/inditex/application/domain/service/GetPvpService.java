@@ -14,7 +14,7 @@ public class GetPvpService implements GetPvpUseCase {
     private final GetPvpPort getPvpPort;
 
     @Override
-    public Pvp getPvp(final PvpResolver resolver) {
+    public Pvp resolve(final PvpResolver resolver) {
         return getPvpPort.resolve(resolver);
     }
 
