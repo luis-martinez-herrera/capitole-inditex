@@ -16,6 +16,7 @@
     <description>inditex</description>
     <modules>
         <module>prices-adapter</module>
+        <module>prices-application</module>
     </modules>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
