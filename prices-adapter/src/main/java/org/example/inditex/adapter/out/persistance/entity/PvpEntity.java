@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "PRICES")
-public class PriceEntity {
+public class PvpEntity {
 
     @Id
     private int priceId;

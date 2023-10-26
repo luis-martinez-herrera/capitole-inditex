@@ -9,11 +9,11 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import lombok.RequiredArgsConstructor;
-import org.example.inditex.adapter.out.persistance.entity.PriceEntity;
+import org.example.inditex.adapter.out.persistance.entity.PvpEntity;
 import org.springframework.data.jpa.domain.Specification;
 
 @RequiredArgsConstructor
-public class PvpSpecification implements Specification<PriceEntity> {
+public class PvpSpecification implements Specification<PvpEntity> {
 
   private final LocalDateTime date;
 
@@ -23,7 +23,7 @@ public class PvpSpecification implements Specification<PriceEntity> {
 
   @Override
   public Predicate toPredicate(
-      final Root<PriceEntity> root,
+      final Root<PvpEntity> root,
       final CriteriaQuery<?> criteriaQuery,
       final CriteriaBuilder criteriaBuilder) {
     List<Predicate> predicates = new ArrayList<>();
