@@ -33,6 +33,10 @@ class PvpResolverIT {
         .statusCode(200)
         .assertThat()
         .body("productId", Matchers.equalTo(35455))
+        .body("brandId", Matchers.equalTo(1))
+        .body("startDate", Matchers.equalTo("2020-06-14T00:00:00"))
+        .body("endDate", Matchers.equalTo("2020-12-31T23:59:59"))
+        .body("currency", Matchers.equalTo("EUR"))
         .body("price", Matchers.equalTo(35.5F));
   }
 
@@ -52,6 +56,10 @@ class PvpResolverIT {
         .statusCode(200)
         .assertThat()
         .body("productId", Matchers.equalTo(35455))
+        .body("brandId", Matchers.equalTo(1))
+        .body("startDate", Matchers.equalTo("2020-06-14T15:00:00"))
+        .body("endDate", Matchers.equalTo("2020-06-14T18:30:00"))
+        .body("currency", Matchers.equalTo("EUR"))
         .body("price", Matchers.equalTo(25.45F));
   }
 
@@ -71,6 +79,10 @@ class PvpResolverIT {
         .statusCode(200)
         .assertThat()
         .body("productId", Matchers.equalTo(35455))
+        .body("brandId", Matchers.equalTo(1))
+        .body("startDate", Matchers.equalTo("2020-06-14T00:00:00"))
+        .body("endDate", Matchers.equalTo("2020-12-31T23:59:59"))
+        .body("currency", Matchers.equalTo("EUR"))
         .body("price", Matchers.equalTo(35.5F));
   }
 
@@ -90,6 +102,10 @@ class PvpResolverIT {
         .statusCode(200)
         .assertThat()
         .body("productId", Matchers.equalTo(35455))
+        .body("brandId", Matchers.equalTo(1))
+        .body("startDate", Matchers.equalTo("2020-06-15T00:00:00"))
+        .body("endDate", Matchers.equalTo("2020-06-15T11:00:00"))
+        .body("currency", Matchers.equalTo("EUR"))
         .body("price", Matchers.equalTo(30.5F));
   }
 
@@ -109,6 +125,10 @@ class PvpResolverIT {
         .statusCode(200)
         .assertThat()
         .body("productId", Matchers.equalTo(35455))
+        .body("brandId", Matchers.equalTo(1))
+        .body("startDate", Matchers.equalTo("2020-06-15T16:00:00"))
+        .body("endDate", Matchers.equalTo("2020-12-31T23:59:59"))
+        .body("currency", Matchers.equalTo("EUR"))
         .body("price", Matchers.equalTo(38.95F));
   }
 }
