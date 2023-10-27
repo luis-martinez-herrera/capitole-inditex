@@ -19,11 +19,7 @@ class PvpResolverIT {
 
   @Test
   void testOne() {
-    final String path =
-        "http://localhost:"
-            + port
-            + "/prices/pvp?productId=35455&brandId=1&date="
-            + LocalDateTime.of(2020, 6, 14, 10, 0, 0);
+    final String path = getPath(LocalDateTime.of(2020, 6, 14, 10, 0, 0));
 
     RestAssured.given()
         .accept(String.valueOf(MediaType.APPLICATION_JSON))
@@ -42,11 +38,7 @@ class PvpResolverIT {
 
   @Test
   void testTwo() {
-    String path =
-        "http://localhost:"
-            + port
-            + "/prices/pvp?productId=35455&brandId=1&date="
-            + LocalDateTime.of(2020, 6, 14, 16, 0, 0);
+    String path = getPath(LocalDateTime.of(2020, 6, 14, 16, 0, 0));
 
     RestAssured.given()
         .accept(String.valueOf(MediaType.APPLICATION_JSON))
@@ -65,11 +57,7 @@ class PvpResolverIT {
 
   @Test
   void testThree() {
-    String path =
-        "http://localhost:"
-            + port
-            + "/prices/pvp?productId=35455&brandId=1&date="
-            + LocalDateTime.of(2020, 6, 14, 21, 0, 0);
+    String path = getPath(LocalDateTime.of(2020, 6, 14, 21, 0, 0));
 
     RestAssured.given()
         .accept(String.valueOf(MediaType.APPLICATION_JSON))
@@ -88,11 +76,7 @@ class PvpResolverIT {
 
   @Test
   void testFour() {
-    String path =
-        "http://localhost:"
-            + port
-            + "/prices/pvp?productId=35455&brandId=1&date="
-            + LocalDateTime.of(2020, 6, 15, 10, 0, 0);
+    String path = getPath(LocalDateTime.of(2020, 6, 15, 10, 0, 0));
 
     RestAssured.given()
         .accept(String.valueOf(MediaType.APPLICATION_JSON))
@@ -111,11 +95,7 @@ class PvpResolverIT {
 
   @Test
   void testFive() {
-    String path =
-        "http://localhost:"
-            + port
-            + "/prices/pvp?productId=35455&brandId=1&date="
-            + LocalDateTime.of(2020, 6, 16, 21, 0, 0);
+    String path = getPath(LocalDateTime.of(2020, 6, 16, 21, 0, 0));
 
     RestAssured.given()
         .accept(String.valueOf(MediaType.APPLICATION_JSON))
@@ -130,5 +110,9 @@ class PvpResolverIT {
         .body("endDate", Matchers.equalTo("2020-12-31T23:59:59"))
         .body("currency", Matchers.equalTo("EUR"))
         .body("price", Matchers.equalTo(38.95F));
+  }
+
+  private String getPath(LocalDateTime time) {
+    return "http://localhost:%s/prices/pvp?productId=35455&brandId=1&date=%s".formatted(port, time);
   }
 }
