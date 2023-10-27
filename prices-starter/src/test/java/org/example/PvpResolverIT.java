@@ -11,7 +11,7 @@ import org.springframework.http.MediaType;
 
 @Slf4j
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class AppTest {
+class PvpResolverIT {
   @LocalServerPort private int port;
 
   @Test
@@ -19,7 +19,7 @@ class AppTest {
 
   @Test
   void testOne() {
-    String path =
+    final String path =
         "http://localhost:"
             + port
             + "/prices/pvp?productId=35455&brandId=1&date="

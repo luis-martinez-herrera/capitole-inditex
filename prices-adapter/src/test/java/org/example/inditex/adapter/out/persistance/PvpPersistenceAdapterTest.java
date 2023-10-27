@@ -23,19 +23,10 @@ import org.springframework.data.jpa.domain.Specification;
 class PvpPersistenceAdapterTest {
 
     @Mock
-    PvpRepository priceRepository;
+    private PvpRepository priceRepository;
 
     @InjectMocks
-    PvpPersistenceAdapter priceService;
-
-//    @Test
-//    void testEmpty() {
-//        PvpResolver requestDto = new PvpResolver();
-//        List<PvpEntity> entities = new ArrayList<>();
-//        Mockito.when(priceRepository.findAll(ArgumentMatchers.<Specification<PvpEntity>>any())).thenReturn(entities);
-//
-//        assertThrows(NoSuchElementException.class, () -> this.priceService.resolve(requestDto));
-//    }
+    private PvpPersistenceAdapter priceService;
 
     @Test
     void testOneResult() {
@@ -69,52 +60,53 @@ class PvpPersistenceAdapterTest {
         assertEquals(expectedStartDate, pvpResponseDto.getStartDate());
         assertEquals(expectedEndDate, pvpResponseDto.getEndDate());
     }
-//
-//    @Test
-//    void testMultipleResult() {
-//        PvpRequestDto requestDto = new PvpRequestDto();
-//
-//        List<PriceEntity> entities = new ArrayList<>();
-//        PriceEntity priceEntity1 = new PriceEntity();
-//        priceEntity1.setPriority(0);
-//        priceEntity1.setProductId(35455);
-//        priceEntity1.setBrandId(1);
-//        priceEntity1.setPrice(new BigDecimal("35.50"));
-//        priceEntity1.setPriceId(1);
-//        priceEntity1.setCurrency("EUR");
-//
-//        LocalDateTime expectedStartDate1 = LocalDateTime.of(2020, 6, 14, 0, 0, 0);
-//        LocalDateTime expectedEndDate1 = LocalDateTime.of(2020, 12, 31, 23, 59, 59);
-//        priceEntity1.setStartDate(expectedStartDate1);
-//        priceEntity1.setEndDate(expectedEndDate1);
-//
-//        entities.add(priceEntity1);
-//
-//        PriceEntity priceEntity2 = new PriceEntity();
-//        priceEntity2.setPriority(1);
-//        priceEntity2.setProductId(35455);
-//        priceEntity2.setBrandId(1);
-//        priceEntity2.setPrice(new BigDecimal("25.45"));
-//        priceEntity2.setPriceId(2);
-//        priceEntity2.setCurrency("EUR");
-//
-//        LocalDateTime expectedStartDate2 = LocalDateTime.of(2020, 6, 14, 15, 0, 0);
-//        LocalDateTime expectedEndDate2 = LocalDateTime.of(2020, 6, 14, 18, 30, 0);
-//        priceEntity2.setStartDate(expectedStartDate2);
-//        priceEntity2.setEndDate(expectedEndDate2);
-//
-//        entities.add(priceEntity2);
-//
-//        Mockito.when(priceRepository.findAll(ArgumentMatchers.<Specification<PriceEntity>>any())).thenReturn(entities);
-//        PvpResponseDto pvpResponseDto = this.priceService.searchPvp(requestDto);
-//
-//        assertNotNull(pvpResponseDto);
-//        assertEquals(35455, pvpResponseDto.getProductId());
-//        assertEquals(1, pvpResponseDto.getBrandId());
-//        assertEquals(new BigDecimal("25.45"), pvpResponseDto.getPrice());
-//        assertEquals(2, pvpResponseDto.getPriceId());
-//        assertEquals("EUR", pvpResponseDto.getCurrency());
-//        assertEquals(expectedStartDate2, pvpResponseDto.getStartDate());
-//        assertEquals(expectedEndDate2, pvpResponseDto.getEndDate());
-//    }
+
+    @Test
+    void testMultipleResult() {
+
+        List<PvpEntity> entities = new ArrayList<>();
+        PvpEntity priceEntity1 = new PvpEntity();
+        priceEntity1.setPriority(0);
+        priceEntity1.setProductId(35455);
+        priceEntity1.setBrandId(1);
+        priceEntity1.setPrice(new BigDecimal("35.50"));
+        priceEntity1.setPriceId(1);
+        priceEntity1.setCurrency("EUR");
+
+        LocalDateTime expectedStartDate1 = LocalDateTime.of(2020, 6, 14, 0, 0, 0);
+        LocalDateTime expectedEndDate1 = LocalDateTime.of(2020, 12, 31, 23, 59, 59);
+        priceEntity1.setStartDate(expectedStartDate1);
+        priceEntity1.setEndDate(expectedEndDate1);
+
+        entities.add(priceEntity1);
+
+        PvpEntity priceEntity2 = new PvpEntity();
+        priceEntity2.setPriority(1);
+        priceEntity2.setProductId(35455);
+        priceEntity2.setBrandId(1);
+        priceEntity2.setPrice(new BigDecimal("25.45"));
+        priceEntity2.setPriceId(2);
+        priceEntity2.setCurrency("EUR");
+
+        LocalDateTime expectedStartDate2 = LocalDateTime.of(2020, 6, 14, 15, 0, 0);
+        LocalDateTime expectedEndDate2 = LocalDateTime.of(2020, 6, 14, 18, 30, 0);
+        priceEntity2.setStartDate(expectedStartDate2);
+        priceEntity2.setEndDate(expectedEndDate2);
+
+        entities.add(priceEntity2);
+
+        Mockito.when(priceRepository.findAll(ArgumentMatchers.<Specification<PvpEntity>>any())).thenReturn(entities);
+
+        PvpResolver requestDto = new PvpResolver(LocalDateTime.now(), 1,1);
+        Pvp pvpResponseDto = this.priceService.resolve(requestDto);
+
+        assertNotNull(pvpResponseDto);
+        assertEquals(35455, pvpResponseDto.getProductId());
+        assertEquals(1, pvpResponseDto.getBrandId());
+        assertEquals(new BigDecimal("25.45"), pvpResponseDto.getPrice());
+        assertEquals(2, pvpResponseDto.getPriceId());
+        assertEquals("EUR", pvpResponseDto.getCurrency());
+        assertEquals(expectedStartDate2, pvpResponseDto.getStartDate());
+        assertEquals(expectedEndDate2, pvpResponseDto.getEndDate());
+    }
 }

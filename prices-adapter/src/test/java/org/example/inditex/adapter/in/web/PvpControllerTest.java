@@ -17,9 +17,12 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @WebMvcTest(PvpController.class)
 class PvpControllerTest {
-  @Autowired private MockMvc mockMvc;
 
-  @MockBean private GetPvpUseCase getPvpUseCase;
+  @Autowired
+  private MockMvc mockMvc;
+
+  @MockBean
+  private GetPvpUseCase getPvpUseCase;
 
   @DisplayName("Test not found path")
   @Test
